@@ -93,4 +93,22 @@ db.pokemons.find()
 }
 
 
-## Atualização do Pikachu (passo 6)
+## Atualização que desejar (passo 6)
+
+> poke.name
+Caterpie
+> poke.defense = 35
+35
+> poke
+{
+  "_id": ObjectId("56422705613f89ac53a7b5d4"),
+  "name": "Caterpie",
+  "description": "Larva lutadora",
+  "type": "inseto",
+  "attack": 30,
+  "height": 0.3,
+  "defense": 35
+}
+> db.pokemons.save(poke)
+Updated 1 existing record(s) in 2ms
+
