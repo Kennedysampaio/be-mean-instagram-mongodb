@@ -74,10 +74,13 @@ n" : "Larva lutadora", "type" : "inseto", "attack" : 30, "height" : 0.3, "movies
 
 ## **Adicionar** o pokemon `AindaNaoExisteMon` caso ele não exista com todos os dados com o valor `null` e a descrição: "Sem maiores informações".##
 
-> var query = {name: 'AindaNaoExitMon', description: 'Sem maiores informações',
-type: null, attack: null, active: null, height: null}
-> db.pokemons.insert(query)
-WriteResult({ "nInserted" : 1 })
+> var query = {name: /AindaNaoExitMon/i}
+> var mod = {$setOnInsert: 
+{name: 'AindaNaoExitMon', type: null, attack: null, 
+defense: null, height: null, description: 'Sem maiores informações'}}
+> var options = {upsert: true}
+> db.pokemons.update(query, mod, options)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
 > db.pokemons.find(query)
 { "_id" : ObjectId("565200dba78977a49f35b6e5"), "name" : "AindaNaoExitMon", "des
 cription" : "Sem maiores informações", "type" : null, "attack" : null, "active"
