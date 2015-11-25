@@ -168,7 +168,7 @@ ht" : 0.5, "movies" : [ "Investida" ], "moves" : [ "Investida" ] }
 WriteResult({ "nRemoved" : 1 })
 > db.pokemons.find(query)
 
-9. Esse item não está no vídeo e se você fizer significa que você lê as coisas, nesse exercício demonstre qual a diferença entre os operadores $ne e $not.
+## Esse item não está no vídeo e se você fizer significa que você lê as coisas, nesse exercício demonstre qual a diferença entre os operadores $ne e $not.
 
 $ne seleciona os documentos onde o valor do campo não é igual (ou seja, é diferente '!=') para o valor pesquisado. 
 > db.pokemons.find({attack:{$ne: 30}})
