@@ -24,6 +24,11 @@ C:\mongodb\bin>mongoimport --host 127.0.0.1 --db be-mean --collection restaurant
 9.8 MB/11.4 MB (86.2%)
 2015-12-03T23:55:55.440-0200    imported 25359 documents
 
+C:\mongodb\bin>mongoimport --host 127.0.0.1 --db be-mean --collection pokemons --drop --file C:\pokemons.json
+2015-12-05T00:06:40.356-0200    connected to: 127.0.0.1
+2015-12-05T00:06:40.362-0200    dropping: be-mean.pokemons
+2015-12-05T00:06:41.450-0200    imported 610 documents
+
 ## 2. Distinct por `cuisine` na collection restaurantes
 
 >db.restaurantes.distinct('cuisine')
@@ -118,9 +123,76 @@ C:\mongodb\bin>mongoimport --host 127.0.0.1 --db be-mean --collection restaurant
 
 ## 3. Distinct por `types` na pokemons
 
+>db.pokemons.distinct('types')
+{
+    "0" : "fire",
+    "1" : "normal",
+    "2" : "water",
+    "3" : "bug",
+    "4" : "flying",
+    "5" : "poison",
+    "6" : "electric",
+    "7" : "steel",
+    "8" : "ice",
+    "9" : "ghost",
+    "10" : "fighting",
+    "11" : "psychic",
+    "12" : "grass",
+    "13" : "ground",
+    "14" : "fairy",
+    "15" : "rock",
+    "16" : "dark",
+    "17" : "dragon"
+}
 
 
 ## 4. As primeiras 3 páginas com .limit() e .skip() de pokemons (5 em 5)
+
+>db.pokemons.find().limit (3).skip(5 * 5)
+/* 1 */
+{
+    "_id" : ObjectId("564b1daf25337263280d0492"),
+    "attack" : 80.0000000000000000,
+    "created" : "2013-11-03T15:05:41.402119",
+    "defense" : 50.0000000000000000,
+    "height" : "8",
+    "hp" : 70.0000000000000000,
+    "name" : "Machop",
+    "speed" : 35.0000000000000000,
+    "types" : [ 
+        "fighting"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("564b1daf25337263280d0493"),
+    "attack" : 100.0000000000000000,
+    "created" : "2013-11-03T15:05:41.404294",
+    "defense" : 70.0000000000000000,
+    "height" : "15",
+    "hp" : 80.0000000000000000,
+    "name" : "Machoke",
+    "speed" : 45.0000000000000000,
+    "types" : [ 
+        "fighting"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("564b1daf25337263280d0494"),
+    "attack" : 130.0000000000000000,
+    "created" : "2013-11-03T15:05:41.406521",
+    "defense" : 80.0000000000000000,
+    "height" : "16",
+    "hp" : 90.0000000000000000,
+    "name" : "Machamp",
+    "speed" : 55.0000000000000000,
+    "types" : [ 
+        "fighting"
+    ]
+}
 
 ## 5 . Group ou Aggregate contando a quantidade de pokemons de cada tipo
 
